@@ -68,7 +68,7 @@ stages:
   jobs:
   - deployment: DeployWebsite
     displayName: Deploy website
-    environment: Website
+    environment: WebsiteToyStore
     strategy:
       runOnce:
         deploy:
