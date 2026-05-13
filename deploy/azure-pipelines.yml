@@ -6,7 +6,13 @@ trigger:
 
 variables:
   - name: deploymentDefaultLocation
-    value: westus
+    value: francecentral
+  - name: ServiceConnectionName
+    value: azure-rg-az-400-toystore
+  - name: ResourceGroupName
+    value: rg-az-400-toystore
+  - name: EnvironmentType
+    value: Test
 
 pool:
   vmImage: ubuntu-latest
