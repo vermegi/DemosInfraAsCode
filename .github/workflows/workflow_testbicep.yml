@@ -1,4 +1,4 @@
-name: deploy-toy-website-environments
+name: deploy-toy-website-infra-with_tests
 concurrency: toy-company
 
 on:
@@ -27,13 +27,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: azure/login@v1
+    - uses: azure/login@v3
       name: Sign in to Azure
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-    - uses: azure/arm-deploy@v1
+    - uses: azure/arm-deploy@v2
       name: Run preflight validation
       with:
         deploymentName: ${{ github.run_number }}
@@ -47,13 +47,13 @@ jobs:
     needs: [lint, validate]
     steps:
     - uses: actions/checkout@v3
-    - uses: azure/login@v1
+    - uses: azure/login@v3
       name: Sign in to Azure
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-    - uses: azure/arm-deploy@v1
+    - uses: azure/arm-deploy@v2
       name: Run what-if
       with:
         failOnStdErr: false
@@ -71,13 +71,13 @@ jobs:
       appServiceAppHostName: ${{ steps.deploy.outputs.appServiceAppHostName }}
     steps:
     - uses: actions/checkout@v3
-    - uses: azure/login@v1
+    - uses: azure/login@v3
       name: Sign in to Azure
       with:
         client-id: ${{ secrets.AZURE_CLIENT_ID }}
         tenant-id: ${{ secrets.AZURE_TENANT_ID }}
         subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
-    - uses: azure/arm-deploy@v1
+    - uses: azure/arm-deploy@v2
       id: deploy
       name: Deploy website
       with:
