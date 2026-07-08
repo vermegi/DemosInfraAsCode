@@ -11,3 +11,7 @@ az deployment group create --resource-group az400-Bicep2 --template-file ./deplo
 
 az deployment group create --resource-group az400-Bicep2 --template-file ./deploy/main.bicep --what-if
 
+
+# demo azure-pipelines.yml
+# demo workflow_testbicep.yml
+# demo workflow_environments.yml
