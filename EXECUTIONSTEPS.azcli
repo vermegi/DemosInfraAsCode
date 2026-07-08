@@ -1,0 +1,13 @@
+az bicep install
+az bicep version
+az bicep upgrade
+
+az bicep build -f ./deploy/main.bicep
+
+# DO NOT RUN
+az group create --name az400-Bicep2 --location francecentral
+az deployment group create --resource-group az400-Bicep2 --template-file ./deploy/main.bicep
+
+
+az deployment group create --resource-group az400-Bicep2 --template-file ./deploy/main.bicep --what-if
+
