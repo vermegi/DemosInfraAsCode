@@ -1,1 +1,35 @@
 /deploy/main.json
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# User-specific files
+*.user
+*.rsuser
+*.suo
+
+# Visual Studio files
+.vs/
+
+# Test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# .NET tools and packages
+artifacts/
+*.nupkg
+*.snupkg
+
+# ASP.NET Scaffolding
+ScaffoldingReadMe.txt
+
+# Rider
+.idea/
+
+# VS Code
+.vscode/
+
+# OS files
+.DS_Store
+Thumbs.db
