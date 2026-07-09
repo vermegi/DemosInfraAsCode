@@ -5,13 +5,20 @@ az bicep upgrade
 az bicep build -f ./deploy/main.bicep
 
 # DO NOT RUN
-az group create --name az400-Bicep2 --location francecentral
-az deployment group create --resource-group az400-Bicep2 --template-file ./deploy/main.bicep
+az group create --name az400-Bicep3 --location francecentral
+az deployment group create --resource-group az400-Bicep3 --template-file ./deploy/main.bicep
 
 
-az deployment group create --resource-group az400-Bicep2 --template-file ./deploy/main.bicep --what-if
+az deployment group create --resource-group az400-Bicep3 --template-file ./deploy/main.bicep --what-if
+
+az deployment group validate --resource-group az400-Bicep3 --template-file ./deploy/main.bicep --parameters environmentType=Test
+
 
 
 # demo azure-pipelines.yml
 # demo workflow_testbicep.yml
 # demo workflow_environments.yml
+
+
+az deployment group create --resource-group az400-ToyWebsiteTest --mode Complete --template-file ./deploy/empty.bicep
+az deployment group create --resource-group az400-ToyWebsiteProduction --mode Complete --template-file ./deploy/empty.bicep
